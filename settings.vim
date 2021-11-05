@@ -5,6 +5,7 @@ set mat=1										" Set time to show matching braces to 1 second
 
 " Line
 set relativenumber								" Show relative line numbers
+set number										" Show line non-relative number for the current line
 set nowrap										" Display line without wrapping
 
 " Cursor

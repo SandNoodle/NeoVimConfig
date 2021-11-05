@@ -25,4 +25,3 @@ source ~/Appdata/Local/nvim/plugins-post/devicons-config.vim
 source ~/Appdata/Local/nvim/plugins-post/nerdtree-config.vim
 source ~/Appdata/Local/nvim/plugins-post/signify-config.vim
 source ~/Appdata/Local/nvim/plugins-post/presence-config.vim
-source ~/Appdata/Local/nvim/plugins-post/autoformat-config.vim
