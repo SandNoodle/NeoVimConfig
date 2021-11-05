@@ -1,0 +1,1 @@
+let g:airline_powerline_fonts = 1			" Status bar fix to use the icons
