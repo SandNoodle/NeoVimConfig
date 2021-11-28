@@ -41,3 +41,4 @@ tags
 
 # Custom
 plug-ins/
+lsp/bin/*

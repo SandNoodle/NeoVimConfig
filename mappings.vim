@@ -1,11 +1,18 @@
 " ------------------------------------
-" --------- Split navigation ---------
+" -------------- Split ---------------
 " ------------------------------------
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Navigation bwtween splits
+nnoremap <silent><C-J> <C-W><C-J>
+nnoremap <silent><C-K> <C-W><C-K>
+nnoremap <silent><C-L> <C-W><C-L>
+nnoremap <silent><C-H> <C-W><C-H>
+
+" Resize split
+nnoremap <silent><C-up> <C-W>+ 
+nnoremap <silent><C-down> <C-W>-
+nnoremap <silent><C-left> <C-W>>
+nnoremap <silent><C-right> <C-W><
 
 " ------------------------------------
 " -------- Buffer navigation ---------
@@ -35,40 +42,6 @@ nnoremap <silent><leader>fb <cmd>Telescope buffers<cr>
 nnoremap <silent><leader>ft <cmd>Telescope help_tags<cr>
 
 " ------------------------------------
-" --------------- COC ----------------
-" ------------------------------------
-
-" Show autocomplete
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <TAB> for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <TAB>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Rename Definition
-nmap <silent> dr <Plug>(coc-rename)
-
-" GOTOs
-nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
-nmap <silent> gt :call CocAction('jumpTypeDefinition', 'vsplit')<CR>
-nmap <silent> gi :call CocAction('jumpImplementation', 'vsplit')<CR>
-nmap <silent> gr :call CocAction('jumpReferences', 'vsplit')<CR>
-
-" GOTO to errors
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" ------------------------------------
 " ------------- NerdTree -------------
 " ------------------------------------
 
@@ -76,8 +49,36 @@ nnoremap <silent> <C-f> :NERDTreeFocus<CR>
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 
 " ------------------------------------
+" --------------- Fern ---------------
+" ------------------------------------
+
+" noremap <silent> <C-f> :Fern . -drawer -toggle <CR>
+
+" function! s:init_fern() abort
+" 	nmap <buffer> H <Plug>(fern-action-open:split)
+" 	nmap <buffer> V <Plug>(fern-action-open:vsplit)
+" 	nmap <buffer> R <Plug>(fern-action-rename)
+" 	nmap <buffer> M <Plug>(fern-action-move)
+" endfunction
+
+" Invoked after fern buffer was initialized but before displaying any files
+" augroup fern-custom
+" 	autocmd! *
+" 	autocmd FileType fern call s:init_fern()
+" augroup END
+
+" ------------------------------------
+" --------------- File ---------------
+" ------------------------------------
+
+nnoremap <silent> gf :edit <cfile><CR>
+
+" ------------------------------------
 " --------------- Misc ---------------
 " ------------------------------------
+
+" Exit Insert mode using Ctrl + c
+inoremap <silent> <C-c> <ESC>
 
 " Move lines in Visual, Visual Line and Normal mode
 nnoremap <silent> <A-j> :m .+1<CR>==

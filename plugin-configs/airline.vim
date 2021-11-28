@@ -1,4 +1,4 @@
-" Powerline symbols
+﻿" Powerline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -18,3 +18,6 @@ let g:airline_section_z = '%p%%' " [Percentage]
 
 " Enable Tabbar
 let g:airline#extensions#tabline#enabled = 1
+
+" Status bar fix to use the icons
+let g:airline_powerline_fonts = 1
