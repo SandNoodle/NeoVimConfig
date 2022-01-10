@@ -22,7 +22,7 @@ Plug 'folke/lsp-colors.nvim'				" LSP Colors - FIX diagnostic color highlights
 " --- Fuzzy Finder ---
 Plug 'nvim-treesitter/nvim-treesitter'			" Treesitter - Language parsing
 Plug 'nvim-lua/plenary.nvim'				" Plenary - Telescope Dependency
-Plug 'nvim-telescope/telescope.nvim'			" Telescope - Fuzzy finder
+Plug 'nvim-telescope/telescope.nvim', { 'commit': '492f1d3' }	" Telescope - Fuzzy finder | Latest 0.5.1 supported commit
 
 " --- File Explorer ---
 Plug 'https://github.com/preservim/nerdtree' 		" NERDTree - File explorer

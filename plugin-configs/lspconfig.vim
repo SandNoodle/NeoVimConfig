@@ -8,15 +8,7 @@ nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> F <cmd>lua vim.lsp.buf.formatting()<CR>
-
-" Autoformatting
-" autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.cs lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.c lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.h lua vim.lsp.buf.formatting_sync(nil, 100)
+nnoremap <silent> <leader>ca <cmd>lua vim.lsp.buf.code_action()<CR>
 
 " Misc
 hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
@@ -25,4 +17,4 @@ hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
 luafile ~/Appdata/Local/nvim/lsp/tsserver-lsp.lua
 luafile ~/Appdata/Local/nvim/lsp/omnisharp-lsp.lua
 luafile ~/Appdata/Local/nvim/lsp/clangd-lsp.lua
-
+luafile ~/Appdata/Local/nvim/lsp/rust-analyzer-lsp.lua

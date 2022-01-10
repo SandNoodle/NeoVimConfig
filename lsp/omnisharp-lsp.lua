@@ -8,5 +8,5 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 require'lspconfig'.omnisharp.setup{
 	cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
-	capabilities = capabilities
+	capabilities = capabilities,
 }

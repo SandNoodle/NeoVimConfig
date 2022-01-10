@@ -9,7 +9,7 @@ nnoremap <silent><C-L> <C-W><C-L>
 nnoremap <silent><C-H> <C-W><C-H>
 
 " Resize split
-nnoremap <silent><C-up> <C-W>+ 
+nnoremap <silent><C-up> <C-W>+
 nnoremap <silent><C-down> <C-W>-
 nnoremap <silent><C-left> <C-W>>
 nnoremap <silent><C-right> <C-W><
@@ -79,6 +79,10 @@ nnoremap <silent> gf :edit <cfile><CR>
 
 " Exit Insert mode using Ctrl + c
 inoremap <silent> <C-c> <ESC>
+
+" Better indentation
+vnoremap > >gv
+vnoremap < <gv
 
 " Move lines in Visual, Visual Line and Normal mode
 nnoremap <silent> <A-j> :m .+1<CR>==
