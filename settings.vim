@@ -58,6 +58,3 @@ set mouse=a						" Enable mouse
 
 " Fixes
 let g:python3_host_prog = 'C:\Program Files\Python38\python.exe'	" Fix Python 3 provider
-
-" Nevim-QT specific
-source ~/AppData/Local/nvim/neovim-qt-config.vim

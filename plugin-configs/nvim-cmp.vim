@@ -1,19 +1,22 @@
 ﻿lua << EOF
-local cmp = require'cmp'
-
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local luasnip = require'luasnip'
-local lspkind = require'lspkind'
-
-require 'cmp_nvim_lsp'
 
 -- Init
+local lspkind = require'lspkind'
 lspkind.init({
 	with_text = true,
 	preset = 'codicons',
 })
 
+-- FIX: Too many brackets when using completion, ex. (((((((())))))))
+local autopairs = require('nvim-autopairs')
+autopairs.setup ({
+	check_ts = true,
+	enable_check_bracket_line = false,
+})
+
 -- Setup Completion
+local cmp = require'cmp'
+local luasnip = require'luasnip'
 cmp.setup(
 {
 	-- Select snippet engine
@@ -90,9 +93,10 @@ cmp.setup(
 })
 
 -- Autopairs
-require('nvim-autopairs').setup ({
-	enable_check_bracket_line = false, -- if next character is unclosed pair, then don't insert new pair.
-})
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if cmp_status_ok then
+	local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+	cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+end
 
 EOF

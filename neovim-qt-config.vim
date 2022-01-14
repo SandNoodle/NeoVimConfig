@@ -8,6 +8,16 @@ if exists('g:GuiLoaded')
 	call rpcnotify(0, "Gui", "Option", "Popupmenu", 0)
 endif
 
+"Disable GUI Popupmenu
+if exists(':GuiPopupmenu')
+	GuiPopupmenu 0
+endif
+
+" Disable Gui ScrollBar
+if exists(':GuiScrollBar')
+	GuiScrollBar 0
+endif
+
 " Specify the font
 if exists('g:GuiFont')
 	GuiFont! FiraCode NF:h11
