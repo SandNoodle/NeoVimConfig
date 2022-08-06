@@ -20,5 +20,5 @@ endif
 
 " Specify the font
 if exists('g:GuiFont')
-	GuiFont! FiraCode NF:h11
+	GuiFont! JetBrains\ Mono:h11
 endif

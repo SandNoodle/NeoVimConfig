@@ -28,16 +28,16 @@ set wildmenu						" Enable auto complete for :e command after pressing <TAB>
 " Indentation
 set autoindent						" Automatically indent
 set noexpandtab						" Force Smart Tabs
-set tabstop=8						" Tab equals to 8 spaces
-set softtabstop=8					" Tab equals to 8 spaces
-set shiftwidth=8					" Tab equals to 8 spaces
+set tabstop=4						" Tab equals to N spaces
+set softtabstop=4					" Tab equals to N spaces
+set shiftwidth=4					" Tab equals to N spaces
 set nolist						" Disable indent characters (Check keymapping.vim for toggle bind)
 set listchars=tab:>\ ,space:.,trail:_,
 			\extends:>,precedes:<,nbsp:~	" Specify indent characters
 
 " Theme
 set background=dark					" Use dark background color
-let g:gruvbox_contrast_dark='medium'			" Use Medium contrast variant for gruxbox theme
+let g:gruvbox_contrast_dark='hard'			" Use Medium contrast variant for gruxbox theme
 try | colorscheme gruvbox | catch | endtry		" Use gruxbox theme
 highlight Pmenu ctermbg=black guibg=black		" Fix popup color so it's easier to read
 let g:airline_theme='gruvbox'				" Choose status bar theme

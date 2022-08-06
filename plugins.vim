@@ -38,6 +38,10 @@ Plug 'andweeb/presence.nvim'				" Discord Rich Presence for NeoVim
 Plug 'tpope/vim-commentary'				" Comment out lines with shortcuts
 Plug 'tpope/vim-surround'				" Surround text with characters
 
+
+" --- Syntax ---
+Plug 'tikhomirov/vim-glsl'				" GLSL Syntax highlight
+
 call plug#end()
 
 "	--- Config ---
