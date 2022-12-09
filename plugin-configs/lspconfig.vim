@@ -18,3 +18,5 @@ luafile ~/Appdata/Local/nvim/lsp/tsserver-lsp.lua
 luafile ~/Appdata/Local/nvim/lsp/omnisharp-lsp.lua
 luafile ~/Appdata/Local/nvim/lsp/clangd-lsp.lua
 luafile ~/Appdata/Local/nvim/lsp/rust-analyzer-lsp.lua
+luafile ~/Appdata/Local/nvim/lsp/latex-lsp.lua
+luafile ~/Appdata/Local/nvim/lsp/lua-lsp.lua

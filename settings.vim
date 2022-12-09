@@ -31,15 +31,12 @@ set noexpandtab						" Force Smart Tabs
 set tabstop=4						" Tab equals to N spaces
 set softtabstop=4					" Tab equals to N spaces
 set shiftwidth=4					" Tab equals to N spaces
-set nolist						" Disable indent characters (Check keymapping.vim for toggle bind)
-set listchars=tab:>\ ,space:.,trail:_,
-			\extends:>,precedes:<,nbsp:~	" Specify indent characters
+set list							" Enable indent characters (Check keymapping.vim for toggle bind)
 
 " Theme
 set background=dark					" Use dark background color
 let g:gruvbox_contrast_dark='hard'			" Use Medium contrast variant for gruxbox theme
 try | colorscheme gruvbox | catch | endtry		" Use gruxbox theme
-highlight Pmenu ctermbg=black guibg=black		" Fix popup color so it's easier to read
 let g:airline_theme='gruvbox'				" Choose status bar theme
 let g:gruvbox_color_column='dark0'			" Fix sign column color from ugly light
 

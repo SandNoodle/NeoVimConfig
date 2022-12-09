@@ -97,7 +97,7 @@ noremap <silent><leader>y "*y<CR>
 noremap <silent><leader>p "*p<CR>
 
 " Toggle show indent
-command! TI :set list!
+" command! TI :set list!
 
 " Reload config
 map <leader>res :source $MYVIMRC<CR>

@@ -1,11 +1,7 @@
 ﻿lua << EOF
 
--- Init
-local lspkind = require'lspkind'
-lspkind.init({
-	with_text = true,
-	preset = 'codicons',
-})
+-- Init lspkind
+local lspkind = require('lspkind')
 
 -- FIX: Too many brackets when using completion, ex. (((((((())))))))
 local autopairs = require('nvim-autopairs')
@@ -15,30 +11,67 @@ autopairs.setup ({
 })
 
 -- Setup Completion
-local cmp = require'cmp'
-local luasnip = require'luasnip'
+local cmp = require('cmp')
+local luasnip = require('luasnip')
 cmp.setup(
 {
 	-- Select snippet engine
 	snippet = {
 		expand = function(args)
-		require('luasnip').lsp_expand(args.body)
+		luasnip.lsp_expand(args.body)
 	end,
+	},
+
+	window = {
+		completion = {
+			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+			col_offset = -3,
+			side_padding = 0,
+		},
+		documentation = cmp.config.window.bordered(),
+		max_height=24,
+		max_width=128,
+		winhighlight="FloatBorder:NormalFloat",
 	},
 
 	-- Select formatting options
 	formatting = {
-		format = function(entry,vim_item)
-
-		vim_item.kind = lspkind.presets.default[vim_item.kind]
-		vim_item.menu = ({
-			buffer = "[BUF]",
-			tags = "[TAG]",
-			nvim_lsp = "[LSP]",
-		})[entry.source.name]
-		return vim_item
-	end,
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+		local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+		local strings = vim.split(kind.kind, "%s")
+			kind.kind = " " .. strings[1] .. " "
+			kind.menu = "    (" .. strings[2] .. ")"
+			return kind
+		end,
 	},
+	 symbol_map = {
+		  Text = "",
+		  Method = "",
+		  Function = "",
+		  Constructor = "",
+		  Field = "ﰠ",
+		  Variable = "",
+		  Class = "ﴯ",
+		  Interface = "",
+		  Module = "",
+		  Property = "ﰠ",
+		  Unit = "塞",
+		  Value = "",
+		  Enum = "",
+		  Keyword = "",
+		  Snippet = "",
+		  Color = "",
+		  File = "",
+		  Reference = "",
+		  Folder = "",
+		  EnumMember = "",
+		  Constant = "",
+		  Struct = "פּ",
+		  Event = "",
+		  Operator = "",
+		  TypeParameter = ""
+		},
 
 	-- Keymapping for autocompletion
 	mapping = {
@@ -75,10 +108,6 @@ cmp.setup(
 		completeopt = 'menu, menuone, noinsert',
 	},
 
-	documentation = {
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-	},
-
 	-- Experimental features
 	experimental = {
 		ghost_text = true,
@@ -88,6 +117,7 @@ cmp.setup(
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+		{ name = "treesitter" },
 		{ name = "buffer", keyword_length = 5 }
 	})
 })
